@@ -4,7 +4,7 @@ VerilogFormat Extension is a tool for formatter verilog files. This extension us
 
 ## Features
 
-![](https://github.com/ericsonj/vscode-verilogformar/blob/master/images/verilog-format.gif) 
+![sample](images/verilog-format.gif)
 
 ## Requirements
 
