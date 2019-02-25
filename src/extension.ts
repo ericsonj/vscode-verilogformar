@@ -14,23 +14,39 @@ export function activate(context: vscode.ExtensionContext) {
 		provideDocumentFormattingEdits(document: vscode.TextDocument): vscode.TextEdit[] {
 			let result: vscode.TextEdit[] = [];
 			const verilogformat = <string>vscode.workspace.getConfiguration().get('verilog-format.path');
+			const globalSettings = <string>vscode.workspace.getConfiguration().get('verilog-format.settings');
 
 			if (!validFile(verilogformat)) {
-				console.log("Not found verilog-format");
+				vscode.window.showErrorMessage('Executable ' + verilogformat + '  not found, set Settings verilog-format.path');
 				return result;
 			}
 
-			console.log(verilogformat);
-
-			// const verilogformat = verilogformatjar;
-			var args: string[] = [
-				"-f",
-			];
+			var args: string[] = ["-f",];
 			var tempfile: string = createTempFileOfDocument(document);
 			args.push(tempfile);
-			args.push("-s");
-			var projectDir = path.dirname(document.fileName);
-			args.push(projectDir + path.sep + ".verilog-format.properties");
+
+			var hasSettingsFile: boolean = false;
+			var settingFile: string = '';
+
+			var localSettings = path.dirname(document.fileName)
+				+ path.sep
+				+ ".verilog-format.properties";
+
+			if (validFile(localSettings)) {
+				console.log('Local settings found');
+				settingFile = localSettings;
+				hasSettingsFile = true;
+			} else if (validFile(globalSettings)) {
+				console.log('Global settings found');
+				settingFile = globalSettings;
+				hasSettingsFile = true;
+			} else {
+			}
+
+			if (hasSettingsFile) {
+				args.push("-s")
+				args.push(settingFile);
+			}
 
 			try {
 				console.log(`Executing command: "${verilogformat} ${args.join(" ")}"`);
@@ -72,16 +88,20 @@ function determineEdits(document: vscode.TextDocument, tempfile: string): vscode
 
 function validFile(file: string): boolean {
 
-	if (file === undefined) {
-		return false;
-	}
+	try {
+		if (file === undefined) {
+			return false;
+		}
 
-	if (file.length === 0) {
-		return false;
-	}
+		if (file.length === 0) {
+			return false;
+		}
 
-	if (fs.existsSync(file)) {
-		return true;
+		if (fs.existsSync(file)) {
+			return true;
+		}
+	} catch (err) {
+		console.log(err);
 	}
 
 	return false;

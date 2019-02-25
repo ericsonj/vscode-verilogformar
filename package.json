@@ -22,6 +22,12 @@
 					"type": "string",
 					"default": "/opt/verilog-format/verilog-format",
 					"description": "Path of verilog-format"
+				},
+				"verilog-format.setting": {
+					"scope": "window",
+					"type": "string",
+					"default": "${env:HOME}/.verilog-format.properties",
+					"description": "Path of global verilog-format settings"
 				}
 			}
 		}
