@@ -28,7 +28,7 @@
 					"default": "/opt/verilog-format/verilog-format",
 					"description": "Path of verilog-format"
 				},
-				"verilog-format.setting": {
+				"verilog-format.settings": {
 					"scope": "window",
 					"type": "string",
 					"default": "${env:HOME}/.verilog-format.properties",
