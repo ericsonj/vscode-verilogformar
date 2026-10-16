@@ -198,3 +198,22 @@ Add more documentation, new feactures and fix bugs.
 ### 1.0.0
 
 Initial release of verilog-format vscode extension.
+
+## Publisher Ownership
+
+The original publisher account of this extension (`ericsonj`) is no longer accessible. Ownership is being transferred to the following Visual Studio Marketplace publisher:
+
+* **Extension**: [Verilog Format](https://marketplace.visualstudio.com/items?itemName=ericsonj.verilogformat) (`ericsonj.verilogformat`)
+* **Original publisher**: `ericsonj`
+* **New publisher**: Ericson J (`ericsonjoseph`)
+* **Microsoft account**: ericson_joseph@outlook.com
+* **Secondary contact**: ericsonjoseph@gmail.com (author email in this repository's commit history)
+* **Source repository**: [github.com/ericsonj/vscode-verilogformar](https://github.com/ericsonj/vscode-verilogformar)
+* **Related project**: [github.com/ericsonj/verilog-format](https://github.com/ericsonj/verilog-format) (CLI required by this extension)
+* **Other extensions by this publisher**:
+  * [difftool-review](https://marketplace.visualstudio.com/manage/publishers/ericsonjoseph/extensions/difftool-review/hub)
+  * [vyperling-test-explorer](https://marketplace.visualstudio.com/manage/publishers/ericsonjoseph/extensions/vyperling-test-explorer/hub)
+
+**Requested action**: transfer extension `ericsonj.verilogformat` to publisher `ericsonjoseph`.
+
+Ownership transfer requested on 2026-10-16.
